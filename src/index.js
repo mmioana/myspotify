@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import DefaultApp from './App';
 import * as serviceWorker from './serviceWorker';
+
+
+// const reactAnchorElement = React.createElement('a', {
+//     href: 'https://www.w3schools.com/REACT/default.asp',
+//     target: '_blank'
+// }, 'Learn React from Scoala IT');
+//
+// const defaultAppElement = React.createElement(DefaultApp, {});
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <DefaultApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -15,3 +24,5 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
