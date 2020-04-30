@@ -1,5 +1,5 @@
 import React from 'react';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import './LabeledInput.css';
@@ -81,6 +81,9 @@ class LabeledInput extends React.Component {
                 />
                 <FontAwesomeIcon
                     icon={faHome}
+                />
+                <FontAwesomeIcon
+                    icon={faHeart}
                 />
             </div>
         );

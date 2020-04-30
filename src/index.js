@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import DefaultApp from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router } from "react-router-dom";
 
 
 // const reactAnchorElement = React.createElement('a', {
@@ -15,7 +16,9 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-      <DefaultApp />
+      <Router>
+        <DefaultApp />
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
