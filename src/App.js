@@ -5,8 +5,10 @@ import './App.css';
 import LabeledInput from './LabeledInput'
 
 import About from './pages/About';
+import Categories from './pages/Categories';
 import Category from './pages/Category';
 import Login from './pages/Login';
+import SpotifyCallback from './pages/SpotifyCallback';
 
 function App() {
 
@@ -43,8 +45,17 @@ function App() {
                     component={Login}
                 />
                 <Route
+                    path="/categories"
+                    exact
+                    component={Categories}
+                />
+                <Route
                     path="/categories/:id"
                     component={Category}
+                />
+                <Route
+                    path="/callback"
+                    component={SpotifyCallback}
                 />
             </Switch>
         </main>
