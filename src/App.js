@@ -8,7 +8,9 @@ import About from './pages/About';
 import Categories from './pages/Categories';
 import Category from './pages/Category';
 import Login from './pages/Login';
+import Playlists from './pages/Playlists';
 import SpotifyCallback from './pages/SpotifyCallback';
+import Tracks from './pages/Tracks';
 
 function App() {
 
@@ -52,6 +54,14 @@ function App() {
                 <Route
                     path="/categories/:id"
                     component={Category}
+                />
+                <Route
+                    path="/playlists/:id"
+                    component={Playlists}
+                />
+                <Route
+                    path="/tracks/:id"
+                    component={Tracks}
                 />
                 <Route
                     path="/callback"

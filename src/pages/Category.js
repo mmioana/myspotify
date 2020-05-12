@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Category extends React.Component {
 
@@ -16,14 +16,29 @@ class Category extends React.Component {
         //     categoryId = 'Unknown';
         // }
 
-        const categoryId = this.props.match !== null ? this.props.match.params.id : 'Unknown';
+        // const categoryId = this.props.match !== null ? this.props.match.params.id : 'Unknown';
+        //
+        // return (
+        //     <div>
+        //         {`Category page for ${ this.props.match !== null ? this.props.match.params.id : 'Unknown' }`}
+        //     </div>
+        // )
 
         return (
             <div>
-                {`Category page for ${ this.props.match !== null ? this.props.match.params.id : 'Unknown' }`}
+                <Link
+                    to={{
+                        pathname: `/playlists/${this.props.id}`,
+                        state: {
+                            categoryName: this.props.name
+                        }
+                    }}
+                >
+                    { this.props.name }
+                </Link>
             </div>
-        )
+        );
     }
 }
 
-export default withRouter(Category);
+export default Category;
