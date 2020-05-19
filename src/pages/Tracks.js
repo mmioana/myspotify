@@ -2,6 +2,11 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import Player from '../components/Player';
+import Track from '../components/Track';
+
+import { checkAndReturnToken } from '../utils';
+
+import './Tracks.css';
 
 class Tracks extends React.Component {
 
@@ -17,13 +22,16 @@ class Tracks extends React.Component {
 
         if (playlistId) {
 
-            const token = localStorage.getItem('token');
-            const parsedToken = JSON.parse(token);
+            const token = checkAndReturnToken(this.props.history);
+
+            if (token === null) {
+                return;
+            }
 
             fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=20`, {
                 method: 'GET',
                 headers: {
-                    Authorization: `Bearer ${parsedToken.token}`
+                    Authorization: `Bearer ${token}`
                 }
             }).then(result => {
                 console.log(result)
@@ -71,44 +79,31 @@ class Tracks extends React.Component {
                         playlistName
                     }
                 </h1>
-                <div>
-                    { this.state.tracks.map(track => {
+                <section className="content__wrapper">
+                    <section className="section__tracks">
+                        <ul className="tracks__wrapper">
+                        { this.state.tracks.map(track => {
 
-                        return (
-                            <section
-                                onClick={(event) => {
-                                    this.onTrackClickedHandler(track.id);
-                                }}
-                            >
-                                <h3>
-                                    { track.name }
-                                </h3>
-                                <section>
-                                    <ul>
-                                        {
-                                            track.artists.map(artist => {
-                                                return (
-                                                    <ol>
-                                                        { artist }
-                                                    </ol>
-                                                )
-                                            })
-                                        }
-                                    </ul>
-                                </section>
-                                <p>
-                                    {
-                                        track.duration.toFixed(2)
-                                    }
-                                </p>
-                            </section>
-                        )
-                    })}
-                </div>
-                <section>
-                    <Player
-                        trackId={this.state.currentTrackId}
-                    />
+                            const isTrackPicked = track.id === this.state.currentTrackId;
+
+                            return (
+                                <Track
+                                    pickTrack={this.onTrackClickedHandler}
+                                    id={track.id}
+                                    name={track.name}
+                                    artists={track.artists}
+                                    duration={track.duration}
+                                    isTrackPicked={isTrackPicked}
+                                />
+                            )
+                        })}
+                        </ul>
+                    </section>
+                    <section className="section__player">
+                        <Player
+                            trackId={this.state.currentTrackId}
+                        />
+                    </section>
                 </section>
             </div>
         )

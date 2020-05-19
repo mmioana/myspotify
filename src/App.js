@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
-import LabeledInput from './LabeledInput'
+
+import Header from './components/Header';
 
 import About from './pages/About';
 import Categories from './pages/Categories';
-import Category from './pages/Category';
 import Login from './pages/Login';
 import Playlists from './pages/Playlists';
 import SpotifyCallback from './pages/SpotifyCallback';
@@ -16,21 +15,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-          <nav>
-              <ul>
-                  <li>
-                      <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                      <Link to="/about">About</Link>
-                  </li>
-                  <li>
-                      <Link to="/login">Login</Link>
-                  </li>
-              </ul>
-          </nav>
-      </header>
+        <Header
+        />
         <main>
             <Switch>
                 <Route
@@ -50,10 +36,6 @@ function App() {
                     path="/categories"
                     exact
                     component={Categories}
-                />
-                <Route
-                    path="/categories/:id"
-                    component={Category}
                 />
                 <Route
                     path="/playlists/:id"

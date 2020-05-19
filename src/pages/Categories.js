@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Category from './Category';
+import Category from '../components/Category';
 import { checkAndReturnToken } from '../utils';
 
 class Categories extends React.Component {
