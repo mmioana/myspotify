@@ -1,7 +1,8 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import Category from '../components/Category';
 import { checkAndReturnToken } from '../utils';
+import Playlists from "./Playlists";
 
 class Categories extends React.Component {
 
@@ -59,15 +60,30 @@ class Categories extends React.Component {
     }
 
     render() {
-        return this.state.categories.map(category => {
-            return (
-                <Category
-                    name={category.name}
-                    id={category.id}
-                    url={category.url}
+
+        return (
+            <Switch>
+                <Route
+                    path={`${this.props.match.path}/:id`}
+                    component={Playlists}
                 />
-            )
-        });
+                <Route
+                    path={`${this.props.match.path}*`}
+                >
+                    {
+                        this.state.categories.map(category => {
+                            return (
+                                <Category
+                                    name={category.name}
+                                    id={category.id}
+                                    url={category.url}
+                                />
+                            )
+                        })
+                    }
+                </Route>
+            </Switch>
+        );
     }
 }
 

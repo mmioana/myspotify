@@ -1,0 +1,38 @@
+.playlist__wrapper {
+    transition-property: transform;
+    transition-duration: 1s;
+}
+
+.playlist__image {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 12px;
+}
+
+.playlist__title {
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'Roboto Condensed';
+    font-weight: bold;
+
+    margin: 15px 0 8px;
+}
+
+.playlist__description {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.playlist__title,
+.playlist__description {
+    color: #727272;
+}
+
+.playlist__wrapper:hover {
+    transform: scale(1.1);
+}
+
+.playlist__wrapper:hover a {
+    text-decoration: none;
+}

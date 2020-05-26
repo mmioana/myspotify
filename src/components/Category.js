@@ -28,7 +28,7 @@ class Category extends React.Component {
             <div>
                 <Link
                     to={{
-                        pathname: `/playlists/${this.props.id}`,
+                        pathname: `/categories/${this.props.id}`,
                         state: {
                             categoryName: this.props.name
                         }

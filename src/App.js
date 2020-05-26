@@ -33,16 +33,11 @@ function App() {
                     component={Login}
                 />
                 <Route
-                    path="/categories"
-                    exact
+                    path="/categories*"
                     component={Categories}
                 />
                 <Route
                     path="/playlists/:id"
-                    component={Playlists}
-                />
-                <Route
-                    path="/tracks/:id"
                     component={Tracks}
                 />
                 <Route

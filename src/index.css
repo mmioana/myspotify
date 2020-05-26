@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -12,4 +12,95 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: calc(2 * 8.33%);
+}
+
+.col-3 {
+  width: calc(3 * 8.33%);
+}
+
+.col-4 {
+  width: calc(4 * 8.33%);
+}
+
+.col-5 {
+  width: calc(5 * 8.33%);
+}
+
+.col-5 {
+  width: calc(5 * 8.33%);
+}
+
+.col-6 {
+  width: calc(6 * 8.33%);
+}
+
+.col-7 {
+  width: calc(7 * 8.33%);
+}
+
+.col-8 {
+  width: calc(8 * 8.33%);
+}
+
+.col-9 {
+  width: calc(9 * 8.33%);
+}
+
+.col-10 {
+  width: calc(10 * 8.33%);
+}
+
+.col-11 {
+  width: calc(11 * 8.33%);
+}
+
+.col-12 {
+  width: 100%;
+}
+
+div[class*='col'] {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  .col-1, .col-2, .col-3, .col-4 {
+    width: 33%;
+    max-width: 33%;
+  }
+  .col-5, .col-6, .col-7, .col-8 {
+    width: 66%;
+    max-width: 66%;
+  }
+  .col-9, .col-10, .col-11, .col-12 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  div[class*='col'] {
+    width: 100%;
+    max-width: 100%;
+  }
 }
