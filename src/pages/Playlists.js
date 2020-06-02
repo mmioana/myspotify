@@ -68,6 +68,7 @@ class Playlists extends React.Component {
                         this.state.playlists.map(playlist => {
                             return (
                                 <Playlist
+                                    key={`Playlist${playlist.id}`}
                                     id={playlist.id}
                                     name={playlist.name}
                                     image={playlist.image}

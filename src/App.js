@@ -6,6 +6,7 @@ import Header from './components/Header';
 
 import About from './pages/About';
 import Categories from './pages/Categories';
+import ErrorBoundary from './pages/ErrorBoundary';
 import Login from './pages/Login';
 import Playlists from './pages/Playlists';
 import SpotifyCallback from './pages/SpotifyCallback';
@@ -15,37 +16,39 @@ function App() {
 
   return (
     <div className="App">
-        <Header
-        />
-        <main>
-            <Switch>
-                <Route
-                    path="/"
-                    exact={true}
-                    render={() => (<div>Home page</div>)}
-                />
-                <Route
-                    path="/about"
-                    component={About}
-                />
-                <Route
-                    path="/login"
-                    component={Login}
-                />
-                <Route
-                    path="/categories*"
-                    component={Categories}
-                />
-                <Route
-                    path="/playlists/:id"
-                    component={Tracks}
-                />
-                <Route
-                    path="/callback"
-                    component={SpotifyCallback}
-                />
-            </Switch>
-        </main>
+        <ErrorBoundary>
+            <Header
+            />
+            <main>
+                <Switch>
+                    <Route
+                        path="/"
+                        exact={true}
+                        render={() => (<div>Home page</div>)}
+                    />
+                    <Route
+                        path="/about"
+                        component={About}
+                    />
+                    <Route
+                        path="/login"
+                        component={Login}
+                    />
+                    <Route
+                        path="/categories*"
+                        component={Categories}
+                    />
+                    <Route
+                        path="/playlists/:id"
+                        component={Tracks}
+                    />
+                    <Route
+                        path="/callback"
+                        component={SpotifyCallback}
+                    />
+                </Switch>
+            </main>
+        </ErrorBoundary>
     </div>
   );
 }

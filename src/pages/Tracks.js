@@ -82,12 +82,13 @@ class Tracks extends React.Component {
                 <section className="content__wrapper">
                     <section className="section__tracks">
                         <ul className="tracks__wrapper">
-                        { this.state.tracks.map(track => {
+                        { this.state.tracks.map((track, index) => {
 
                             const isTrackPicked = track.id === this.state.currentTrackId;
 
                             return (
                                 <Track
+                                    key={`Track${track.id}${index}`}
                                     pickTrack={this.onTrackClickedHandler}
                                     id={track.id}
                                     name={track.name}
