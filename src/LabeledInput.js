@@ -6,7 +6,7 @@ import './LabeledInput.css';
 
 class LabeledInput extends React.Component {
 
-    state = {};
+    state = { };
 
     constructor(props) {
         super(props);
@@ -78,7 +78,7 @@ class LabeledInput extends React.Component {
                     type="text"
                     placeholder={this.props.placeholder}
                     id={this.props.id}
-                    value={this.state.value}
+                    value={this.state.value || ''}
                     onChange={this.onChangeHandler}
                     className="form-control"
                 />
